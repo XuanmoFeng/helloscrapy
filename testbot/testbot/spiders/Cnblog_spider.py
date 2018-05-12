@@ -4,6 +4,8 @@ from testbot.items import *
 from scrapy.selector import Selector
 from selenium import webdriver
 
+from testbot.testbot.items import AlbumIdItem
+
 
 class Cnblog_Spider(scrapy.Spider):
     name = "cnblog1"

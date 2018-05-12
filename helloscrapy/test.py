@@ -1,8 +1,9 @@
 # from django.shortcuts import get_tempalte
-from albumId.models import AlbumId
-from django.template.loader import get_template
-from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
+from django.template.loader import get_template
+
+from albumId.models import AlbumId
 
 
 def test(request):
@@ -32,9 +33,15 @@ def index(request):
 
 def search(request):
     param = request.GET.get('singer')
-    t=get_template("test.html")
-    t.render()
-    pass
+    t = get_template("singer.html")
+    return HttpResponse(t.render())
+
+
 def commentor(request):
     t = get_template("commentor.html")
+    return HttpResponse(t.render())
+
+
+def comment(request):
+    t = get_template("comment.html")
     return HttpResponse(t.render())

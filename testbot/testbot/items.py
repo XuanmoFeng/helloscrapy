@@ -7,12 +7,6 @@ from albumId.models import AlbumId
 from singerId.models import SingerId
 
 
-# class AlbumItem(scrapy.Item):
-#     # define the fields for your item here like:
-#     name = scrapy.Field()  # 专辑名字
-#     pic = scrapy.Field()  # 专辑图片
-#     url = scrapy.Field()  # 专辑的链接
-#     pass
 
 
 class TestbotItem(DjangoItem):

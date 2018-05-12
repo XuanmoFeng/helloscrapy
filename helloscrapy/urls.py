@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^footer/',test.index),
     url(r'^search/.*$',test.search,name='search'),
     url(r'^commentor/',test.commentor,name='commentor'),
+    url(r'^comment/',test.comment,name='comment'),
+    url(r'^$',test.index)
 ]
