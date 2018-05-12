@@ -1,0 +1,44 @@
+ {% extends 'footer.html'%} {% block content %}
+<div class="ui equal width grid" style="width:80%;margin:5px 50px 5px 50px ;">
+    <table class="ui inverted table">
+        <thead>
+            <tr>
+                <th>专辑名</th>
+                <th>专辑id</th>
+                <th>专辑图片</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for var in lists %}
+            <tr>
+                <td>{{ var.albumname}}</td>
+                <td>{{ var.albumid}}</td>
+                <td>{{ var.albumpic}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">
+                    <div class="ui right floated pagination menu">
+                        <!--  上一页按钮开始 如果当前页有上一页 -->
+                        {% if lists.has_previous %}
+                        <!-- {# 当前页的上一页按钮正常使用#} -->
+                        <a class="item" href="/test/?page={{ lists.previous_page_number }}">上一页</a>
+                        <!-- {# 当前页的不存在上一页时,上一页的按钮不可用#} -->
+                        {% endif %}
+                        <!-- 循环输出页数 -->
+                        {% for num in paginator.page_range %} {% if num == currentPage %}
+                        <a class="item" href="/test/?page={{ num }}">{{ num }}</a> {% else %}
+                        <a class="item" href="/test/?page={{ num }}">{{ num }}</a> {% endif %} {% endfor %}
+                        <!-- {#页码结束#} -->
+                        <!-- {# 下一页按钮开始#} -->
+                        {% if lists.has_next %}
+                        <a class="item" href="/test/?page={{ lists.next_page_number }}">下一页</a> {% else %} {% endif %} {# 下一页按钮结束#}
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}
